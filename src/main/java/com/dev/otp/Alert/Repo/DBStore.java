@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface DBStore extends JpaRepository<UserEntity,String> {
+public interface DBStore extends JpaRepository<UserEntity,Long> {
 
 }

@@ -10,20 +10,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpServerErrorException;
 
 @Service
-@Component
 public class UserService {
     @Autowired
     DBStore db;
     public ResponseEntity<String> userSave(UserEntity us) {
        try {
            db.save(us);
-          return ResponseEntity.ok("User Saved");
+          //return ResponseEntity.ok("User Saved");
+           return new ResponseEntity("Created",HttpStatus.CREATED);
        }
        catch(Exception e)
        {
-
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error saving user"+ e);
+            e.printStackTrace();
+        //return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error saving user"+ e);
        }
+        return new ResponseEntity<>("User not created", HttpStatus.BAD_REQUEST);
 
     }
 }

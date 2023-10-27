@@ -1,5 +1,6 @@
 package com.dev.otp.Alert.Model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,9 +10,19 @@ import lombok.Data;
 
 public class UserEntity {
     @Id
-    @Column(name="email")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Column(name="ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long ID;
     private String email;
+//    public UserEntity() {
+//
+//    }
 
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 }
